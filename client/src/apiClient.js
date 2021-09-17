@@ -1,5 +1,6 @@
 import axios from "axios";
-const url = "https://thawing-falls-65533.herokuapp.com/"
+// const url = "https://thawing-falls-65533.herokuapp.com/"
+const url = "/"
 
 export class ApiClient {
   constructor(tokenProvider, logoutHandler) {
