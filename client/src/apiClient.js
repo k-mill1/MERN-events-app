@@ -26,7 +26,7 @@ export class ApiClient {
   }
 
   getEvents() {
-    return this.apiCall("get", url);
+    return this.apiCall("get", url+'events');
   }
 
   getByLocation(location) {

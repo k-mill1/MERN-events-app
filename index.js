@@ -58,7 +58,7 @@ app.use(async (req, res, next) => {
 
 // defining CRUD operations
 // get all events
-app.get('/', async (req, res) => {
+app.get('/events', async (req, res) => {
   res.send(await Event.find());
 });
 
