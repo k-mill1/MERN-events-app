@@ -22,8 +22,8 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 // // authorisation
 app.post('/auth', async (req, res) => {
-  console.log('arrived')
-  const user = await User.findOne({userName: req.body.username})
+  console.log('arrived', req.body)
+  const user = await User.findOne({userName: req.body.userName})
   console.log(user)
   if (!user) {
     console.log('no user')
