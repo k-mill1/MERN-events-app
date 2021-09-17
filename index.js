@@ -16,7 +16,7 @@ const { Event } = require('./models/event');
 const { User } = require('./models/user');
 
 // connects to database
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://user:kaisa@cluster0.p2xu7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
+mongoose.connect(process.env.MONGODB_URI, 
 { useNewUrlParser: true, useUnifiedTopology: true });
 
 // uses bodyParser to parse JSON bodies into JS objects
