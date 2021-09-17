@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
 
 
 const { ObjectId } = require('mongodb');
@@ -16,6 +17,8 @@ const { User } = require('./models/user');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://user:kaisa@cluster0.p2xu7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', 
 { useNewUrlParser: true, useUnifiedTopology: true });
 
+// uses bodyParser to parse JSON bodies into JS objects
+app.use(bodyParser.json());
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
