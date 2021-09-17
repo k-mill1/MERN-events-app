@@ -9,6 +9,7 @@
     "express": "^4.15.3",
     "mongodb": "^4.1.2",
     "mongoose": "^6.0.6",
+    "morgan": "^1.10.0",
     "password-generator": "^2.1.0",
     "uuid": "^8.3.2"
   },
