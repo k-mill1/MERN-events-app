@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const morgan = require('morgan');
 
 
 const { ObjectId } = require('mongodb');
@@ -23,6 +24,9 @@ app.use(bodyParser.json());
 
 // enables CORS for all requests
 app.use(cors());
+
+// adding morgan to log HTTP requests
+app.use(morgan('combined'));
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
