@@ -22,15 +22,20 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 // // authorisation
 app.post('/auth', async (req, res) => {
+  console.log('arrived')
   const user = await User.findOne({userName: req.body.username})
+  console.log(user)
   if (!user) {
+    console.log('no user')
     return res.sendStatus(401)
   }
   if (req.body.password !== user.password) {
+    console.log('password does not match')
     return res.sendStatus(403)
   }
   user.token = uuidv4()
   await user.save()
+  console.log('user saved', user)
   res.send({token: user.token})
 })
 
