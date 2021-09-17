@@ -1,32 +1,221 @@
-.App {
-  text-align: center;
-  font-family: "Courier New", monospace;
-  width: 100%;
+/* no events to show text */
+
+.no-events-to-show {
+    text-align: center;
+    font-size: 20px
 }
 
-h1 {
-  font-weight: normal;
-  font-size: 42px;
+/* dropdown */
+
+.dropdown-list {
+    width: 200px;  
 }
 
-.passwords {
-  list-style: none;
-  padding: 0;
-  font-size: 32px;
-  margin-bottom: 2em;
+.dropdown-name {
+    margin-right:10px;   
 }
 
-.more {
-  font-size: 32px;
-  font-family: "Courier New", monospace;
-  border: 2px solid #000;
-  background-color: #fff;
-  padding: 10px 25px;
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end 
 }
-.more:hover {
-  background-color: #FDD836;
+
+/* headers */
+
+.dashboard-header {
+    font-size: 30px;
+    color: white;
+    background-color: black
+  }
+
+.large-header {
+    font-size: 30px;
+    color: white ; 
+    background-color: rgb(128, 109, 143)
 }
-.more:active {
-  background-color: #FFEFA9;
+
+.small-card-header {
+    color: white ; 
+    background-color: rgb(128, 109, 143);
+    font-size: 18px;
+}
+
+.login-header {
+    text-align: center;
+    font-size: 30px;
+}
+
+/* content containers */
+
+.login-card {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.login-page {
+    font-size: 25px;
+}
+
+.event-table {
+    width: 100%;
+    text-align: left;
+    overflow: scroll;
+}
+
+.event-card {
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    margin-bottom: 15px
+}
+.add-card {
+    width: 100%;
+    padding: 0px 0px 0px 0px !important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+/* input fields */
+
+.login-field, select {
+    width: 100%;
+    padding: 12px 100px 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.add-field, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.search-field, select {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* buttons */
+
+.button-62 {
+    appearance: button;
+    background-color: #1652F0;
+    border: 1px solid #1652F0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+    overflow: visible;
+    padding: 12px 16px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: all 80ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+}
+  
+.button-26 {
+    appearance: button;
+    background-color: #1652F0;
+    border: 1px solid #1652F0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+    overflow: visible;
+    padding: 12px 16px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: all 80ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    margin-right: 5px
+}
+  
+.button-27 {
+    appearance: button;
+    background-color: #f09216;
+    border: 1px solid #f09216;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+    overflow: visible;
+    padding: 12px 16px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: all 80ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+}
+  
+.button-28 {
+    appearance: button;
+    background-color: #f01443;
+    border: 1px solid #f01443;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+    overflow: visible;
+    padding: 12px 16px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transition: all 80ms ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+}
+  
+.search-button {
+    margin-left: 5px;
+    background-color:gray;
+    border: gray
+}
+  
+.show-button {
+    margin-left: 12px;
+    margin-top: 5px;
+    width:100%;
+    max-width: 297px;
+    background-color:gray;
+    border: gray
+}
+
+.login-button {
+    text-align: center;
 }
 

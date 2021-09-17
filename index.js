@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 
 const { ObjectId } = require('mongodb');
@@ -19,6 +20,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://user:kaisa@cluster0.p
 
 // uses bodyParser to parse JSON bodies into JS objects
 app.use(bodyParser.json());
+
+// enables CORS for all requests
+app.use(cors());
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
