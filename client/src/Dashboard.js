@@ -1,46 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import Add from './Add';
-import Searchbar from './searchBar';
-import Dropdown from './dropdownContainer';
-import Card from 'react-bootstrap/Card';
-import './App.css';
-import Table from 'react-bootstrap/Table';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect } from 'react'
+import Add from './Add'
+import Searchbar from './searchBar'
+import Dropdown from './dropdownContainer'
+import Card from 'react-bootstrap/Card'
+import './App.css'
+import Table from 'react-bootstrap/Table'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import sortBy from 'lodash/sortBy'
 
 function Dashboard(props) {
-  const [events, cEvents] = useState([]);
-  const [current, cCurrent] = useState(undefined);
-  const [location, cLocation] = useState(undefined);
-  const [name, cName] = useState(undefined);
-  const [sort, cSort] = useState('unsorted');
+  const [events, cEvents] = useState([])
+  const [current, cCurrent] = useState(undefined)
+  const [location, cLocation] = useState(undefined)
+  const [name, cName] = useState(undefined)
+  const [sort, cSort] = useState('unsorted')
 
   const refreshList = () => {
-    props.client.getEvents().then((response) => cEvents(response.data));
-  };
+    props.client.getEvents().then((response) => cEvents(response.data))
+  }
 
   const removeEvent = (id) => {
-    props.client.removeEvent(id).then(() => !location && !name ? refreshList() : location ? getByLocation(location) : getByName(name));
-  };
+    props.client.removeEvent(id).then(() => !location && !name ? refreshList() : location ? getByLocation(location) : getByName(name))
+  }
 
   const getByLocation = (loc) => {
-    props.client.getByLocation(loc).then((response) => cEvents(response.data));
-  };
+    props.client.getByLocation(loc).then((response) => cEvents(response.data))
+  }
 
   const getByName = (nam) => {
-    props.client.getByName(nam).then((response) => cEvents(response.data));
-  };
+    props.client.getByName(nam).then((response) => cEvents(response.data))
+  }
 
   const updateEvent = (ev) => {
     cCurrent(ev);
-  };
+  }
 
   useEffect(() => {
     refreshList();
-  }, []);
+  }, [])
 
   const singleRow = (current) => {
     return (
@@ -83,28 +83,28 @@ function Dashboard(props) {
           <td colSpan = '5'>{'No events to show'}</td>
         </tr>
       )
-    };
-  };
+    }
+  }
   
   return (
     <div>
-    <Container fluid = 'xs'>
-      <Card>
-        <Card.Header className = 'large-header'>Dashboard</Card.Header>
-        <Card.Body >
-          <Row>
-            <Searchbar 
-              refreshList={() => {
-                refreshList();
-                cCurrent(undefined);
-              }}
-              cName = {cName}
-              cLocation = {cLocation}
-              getByLocation = {(loc) => getByLocation(loc)}
-              getByName = {(nam) => getByName(nam)}
-            />
-          </Row>
-          <br />
+      <Container fluid = 'xs'>
+        <Card>
+          <Card.Header className = 'large-header'>Dashboard</Card.Header>
+          <Card.Body >
+            <Row>
+              <Searchbar 
+                refreshList={() => {
+                  refreshList();
+                  cCurrent(undefined);
+                }}
+                cName = {cName}
+                cLocation = {cLocation}
+                getByLocation = {(loc) => getByLocation(loc)}
+                getByName = {(nam) => getByName(nam)}
+              />
+            </Row>
+            <br />
             <Row>
               <Col md = {7}>
               <Card className = 'event-card'>
@@ -150,7 +150,7 @@ function Dashboard(props) {
         </Card>
       </Container> 
     </div>
-  );
+  )
 }
 
-export default Dashboard;
+export default Dashboard
