@@ -1,5 +1,4 @@
-import axios from "axios";
-// const url = "https://thawing-falls-65533.herokuapp.com/"
+import axios from "axios"
 const url = "/"
 
 export class ApiClient {
@@ -21,33 +20,37 @@ export class ApiClient {
         this.logoutHandler()
         return Promise.reject()
       } else {
-        throw error;
+        throw error
       }  
-    });
+    })
   }
 
   getEvents() {
-    return this.apiCall("get", url+'events');
+    return this.apiCall("get", url+'events')
   }
 
   getByLocation(location) {
-    return this.apiCall("get", `${url}${location}`) ;
+    return this.apiCall("get", `${url}${location}`)
   }
 
   getByName(name) {
-    return this.apiCall("get", `${url}name/${name}`) ;
+    return this.apiCall("get", `${url}name/${name}`)
   }
 
   addEvent(name, location, information, date) {
-    return this.apiCall("post", url, { name, location, information, date });
+    return this.apiCall("post", url, { name, location, information, date })
+  }
+
+  addUser(userName, password) {
+    return this.apiCall("post", url + "user", {userName, password})
   }
 
   removeEvent(id) {
-    return this.apiCall("delete", `${url}${id}`);
+    return this.apiCall("delete", `${url}${id}`)
   }
 
   updateEvent(id, name, location, information, date) {
-    return this.apiCall("put", `${url}${id}`, { name, location, information, date }) ;
+    return this.apiCall("put", `${url}${id}`, { name, location, information, date })
   }
 
   async login(userName, password) {
@@ -60,5 +63,4 @@ export class ApiClient {
       }
     })
   }
-
 }

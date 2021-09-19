@@ -1,46 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import Add from './Add';
-import Searchbar from './searchBar';
-import Dropdown from './dropdownContainer';
-import Card from 'react-bootstrap/Card';
-import './App.css';
-import Table from 'react-bootstrap/Table';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect } from 'react'
+import Add from './Add'
+import Searchbar from './searchBar'
+import Dropdown from './dropdownContainer'
+import Card from 'react-bootstrap/Card'
+import './App.css'
+import Table from 'react-bootstrap/Table'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import sortBy from 'lodash/sortBy'
 
 function Dashboard(props) {
-  const [events, cEvents] = useState([]);
-  const [current, cCurrent] = useState(undefined);
-  const [location, cLocation] = useState(undefined);
-  const [name, cName] = useState(undefined);
-  const [sort, cSort] = useState('unsorted');
+  const [events, cEvents] = useState([])
+  const [current, cCurrent] = useState(undefined)
+  const [location, cLocation] = useState(undefined)
+  const [name, cName] = useState(undefined)
+  const [sort, cSort] = useState('unsorted')
 
   const refreshList = () => {
-    props.client.getEvents().then((response) => cEvents(response.data));
-  };
+    props.client.getEvents().then((response) => cEvents(response.data))
+  }
 
   const removeEvent = (id) => {
-    props.client.removeEvent(id).then(() => !location && !name ? refreshList() : location ? getByLocation(location) : getByName(name));
-  };
+    props.client.removeEvent(id).then(() => !location && !name ? refreshList() : location ? getByLocation(location) : getByName(name))
+  }
 
   const getByLocation = (loc) => {
-    props.client.getByLocation(loc).then((response) => cEvents(response.data));
-  };
+    props.client.getByLocation(loc).then((response) => cEvents(response.data))
+  }
 
   const getByName = (nam) => {
-    props.client.getByName(nam).then((response) => cEvents(response.data));
-  };
+    props.client.getByName(nam).then((response) => cEvents(response.data))
+  }
 
   const updateEvent = (ev) => {
     cCurrent(ev);
-  };
+  }
 
   useEffect(() => {
     refreshList();
-  }, []);
+  }, [])
 
   const singleRow = (current) => {
     return (
@@ -61,7 +61,7 @@ function Dashboard(props) {
           </button>
         </td>
       </tr>
-    );
+    )
   }
 
   const buildrows = () => {
@@ -83,66 +83,66 @@ function Dashboard(props) {
           <td colSpan = '5'>{'No events to show'}</td>
         </tr>
       )
-    };
-  };
+    }
+  }
   
   return (
     <div>
-    <Container fluid = 'xs'>
-      <Card>
-        <Card.Header className = 'large-header'>Dashboard</Card.Header>
-        <Card.Body >
-          <Row>
-            <Searchbar 
-              refreshList={() => {
-                refreshList();
-                cCurrent(undefined);
-              }}
-              cName = {cName}
-              cLocation = {cLocation}
-              getByLocation = {(loc) => getByLocation(loc)}
-              getByName = {(nam) => getByName(nam)}
-            />
-          </Row>
-          <br />
+      <Container fluid = 'xs'>
+        <Card>
+          <Card.Header className = 'large-header'>Dashboard</Card.Header>
+          <Card.Body >
             <Row>
-              <Col md = {7}>
-              <Card className = 'event-card'>
-                <Card.Header className = 'small-card-header' >Event Listings</Card.Header>
-                <Card.Body>
-                  <Dropdown 
-                    sort = {sort}
-                    cSort = {cSort}
-                  />
-                  <Table responsive className = 'event-table'>
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Location</th>
-                      <th>Description</th>
-                      <th>Date/Time</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>{buildrows()}</tbody>
-                </Table>
-                </Card.Body>
-              </Card>
-              </Col>
-              <Col>
-              <Add 
-                client={props.client}
+              <Searchbar 
                 refreshList={() => {
                   refreshList();
                   cCurrent(undefined);
                 }}
-                currentEvent={current}
-                cCurrentEvent={cCurrent}
-                currentLocation={location}
-                currentName={name}
-                getByLocation={(loc) => getByLocation(loc)}
-                getByName={(nam) => getByName(nam)}
+                cName = {cName}
+                cLocation = {cLocation}
+                getByLocation = {(loc) => getByLocation(loc)}
+                getByName = {(nam) => getByName(nam)}
               />
+            </Row>
+            <br />
+            <Row>
+              <Col md = {7}>
+                <Card className = 'event-card'>
+                  <Card.Header className = 'small-card-header' >Event Listings</Card.Header>
+                  <Card.Body>
+                    <Dropdown 
+                      sort = {sort}
+                      cSort = {cSort}
+                    />
+                    <Table responsive className = 'event-table'>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Description</th>
+                        <th>Date/Time</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>{buildrows()}</tbody>
+                  </Table>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col>
+                <Add 
+                  client={props.client}
+                  refreshList={() => {
+                    refreshList();
+                    cCurrent(undefined);
+                  }}
+                  currentEvent={current}
+                  cCurrentEvent={cCurrent}
+                  currentLocation={location}
+                  currentName={name}
+                  getByLocation={(loc) => getByLocation(loc)}
+                  getByName={(nam) => getByName(nam)}
+                />
               </Col>
             </Row>
             <button className = 'button-62 log-out-button' onClick={() => props.client.logoutHandler()}> Log out</button>
@@ -150,7 +150,7 @@ function Dashboard(props) {
         </Card>
       </Container> 
     </div>
-  );
+  )
 }
 
-export default Dashboard;
+export default Dashboard
