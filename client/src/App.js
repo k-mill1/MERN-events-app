@@ -1,6 +1,6 @@
-import React, { useState } from "react"
-import Dashboard from "./Dashboard"
-import { ApiClient } from "./apiClient"
+import React, { useState } from "react";
+import Dashboard from "./Dashboard";
+import { ApiClient } from "./apiClient";
 
 import Login from './Login'
 
@@ -9,7 +9,7 @@ function App() {
   const client = new ApiClient(
     () => token,
     () => logout()
-  )
+  );
 
   const login = (t) => {
     window.localStorage.setItem('token', t)
@@ -32,4 +32,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
