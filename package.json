@@ -10,11 +10,12 @@
     "mongodb": "^4.1.2",
     "mongoose": "^6.0.6",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
     "password-generator": "^2.1.0",
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build"
