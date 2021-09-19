@@ -75,7 +75,6 @@
     width: 100%;
     padding: 0px 0px 0px 0px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    margin-bottom: 15px
 }
 .add-card {
     width: 100%;
@@ -226,5 +225,9 @@
 
 .login-button {
     text-align: center;
+}
+
+.log-out-button {
+    margin-top: 15px;
 }
 
