@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import Dashboard from "./Dashboard";
-import { ApiClient } from "./apiClient";
-
+import React, { useState } from "react"
+import Dashboard from "./Dashboard"
+import { ApiClient } from "./apiClient"
 import Login from './Login'
 
 function App() {
@@ -29,7 +28,7 @@ function App() {
       <Login loggedIn = {(t => login(t))} client = {client} />
     )}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
